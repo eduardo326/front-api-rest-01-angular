@@ -1,0 +1,12 @@
+
+<div *ngIf='authService.usuario._id.length>0' class="card text-center mb-3" style="width: 18rem; margin-top: 100px;">
+    <div class="card-body">
+      <h5 class="card-title">Usuario</h5>
+      <span class="card-text"><strong>ID: </strong>{{authService.usuario._id}}</span><br>
+      <span class="card-text"><strong>Login: </strong>{{authService.usuario.login}}</span><br>
+      <span class="card-text"><strong>Nombre: </strong>{{authService.usuario.nombre}}</span><br>
+      <span class="card-text"><strong>Correo: </strong>{{authService.usuario.email}}</span><br><br>
+
+      <button class="btn btn-primary" (click)='logout()'>Salir</button>
+    </div>
+</div>

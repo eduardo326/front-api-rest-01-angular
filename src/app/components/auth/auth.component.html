@@ -1,0 +1,19 @@
+<div class="container text-center" style="margin-top: 50px;">
+    <div class="row">
+        <h1>INGRESE SUS CREDENCIALES</h1>
+        <p>Para efectos de pruebas puede ingresar con las siguientes credenciales sin dejar espacios <br><br><strong>Login:</strong> eduardo_326 <br><strong>Password:</strong> 21zxcz215z   </p>
+        <div class="col-md-4 offset-md-4" style="margin-top: 50px;">
+            <form>
+                <div class="mb-3">
+                    <label for="inputLogin" class="form-label">Login</label>
+                    <input type="text" class="form-control" id="inputLogin" [(ngModel)]="usuario.login" name="login">
+                </div>
+                <div class="mb-3">
+                    <label for="inputPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="inputPassword" [(ngModel)]="usuario.password" name="password">
+                </div>
+                <button type="button" class="btn btn-primary" (click)='login()'>Ingresar</button>
+            </form>
+        </div>
+    </div>
+</div>
