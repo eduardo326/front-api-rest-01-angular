@@ -43,12 +43,29 @@ export class PokemonesFavoritosComponent implements OnInit {
       confirmButtonText: 'Añadir',
       showLoaderOnConfirm: true,
       preConfirm: (pokemon) => {
+        if (!isNaN(pokemon)) {
+          let banderExiste:boolean = false;
 
-        return this.usuariosService.addPokemonesFavoritos(pokemon, this.id).subscribe(
-          ( pokemon ) => {
-            this.pokemones.push(pokemon);
-            return pokemon;
+          this.pokemones.forEach((element) => {
+            if (element.pokemon == pokemon) {
+              banderExiste=true;
+            }
           });
+
+          if (!banderExiste) {
+            return this.usuariosService.addPokemonesFavoritos(pokemon, this.id).subscribe(
+              ( pokemon ) => {
+                this.pokemones.push(pokemon);
+                return pokemon;
+              });
+          } else {
+            throw {name:"Pokemon ya existe", msg:"El pokemon ya esta en la lista de favoritos"};
+          }
+          
+        } else{
+          throw {name:"Valor incorrecto", msg:"Solo puede ingresar numeros"};
+        }
+        
       },
       allowOutsideClick: () => !Swal.isLoading()
     }).then((result) => {
@@ -58,7 +75,10 @@ export class PokemonesFavoritosComponent implements OnInit {
           title: `Pokemon añadido a la lista de favoritos`
         })
       }
-    })
+    }).catch( err => {
+      console.log(err);
+      Swal.fire(err.name, err.msg, 'warning');
+    });
   }
 
 
