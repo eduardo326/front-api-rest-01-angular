@@ -10,5 +10,4 @@ Ejecutar `npm install` para descargar las dependencias. De esta manera estara li
 
 ## servidor de desarrollo
 
-Ejecutar `ng serve` para levantar un servidor en su local. Navegar con la ruta http://localhost:4200/. La aplicación se recargará automáticamente si cambia cualquiera de los archivos de origen.
-
+Ejecutar `ng serve` para levantar un servidor en su local. Navegar con la ruta http://localhost:4200/.
